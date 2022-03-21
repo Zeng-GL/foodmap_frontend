@@ -1,10 +1,5 @@
 module.exports = {
-  devServer: {
-    proxy: {
-      '^/api': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-      },
-    }
+    publicPath: process.env.NODE_ENV === 'production'
+      ? 'https://zeng-gl.github.io/foodmap_frontend/'
+      : '/'
   }
-}
