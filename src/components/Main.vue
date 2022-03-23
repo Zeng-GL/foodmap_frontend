@@ -45,4 +45,5 @@ export default {
   margin: 0rem;
   overflow: hidden;
 }
+
 </style>
