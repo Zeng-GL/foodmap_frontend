@@ -8,7 +8,7 @@
 </template>
 
 <script>
-// import { fetchRestaurants } from "../services/service.js";
+import { fetchRestaurants } from "../services/service.js";
 import axios from "axios";
 import Map from "./Map.vue";
 import Information from "./Information.vue";
@@ -26,11 +26,11 @@ export default {
   },
   methods: {
     async getAllRestaurants() {
-      // this.restaurants = await fetchRestaurants();
-      axios.get("https://foodmap99.herokuapp.com/api/restaurant")
-      .then(res=>{
-        this.restaurants = res.data
-      })
+      this.restaurants = await fetchRestaurants();
+      // axios.get("https://foodmap99.herokuapp.com/api/restaurant")
+      // .then(res=>{
+      //   this.restaurants = res.data
+      // })
     },
   },
   created() {
