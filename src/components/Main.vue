@@ -1,15 +1,23 @@
 <template>
   <v-container fluid class="container-fluid">
     <v-row>
-      <Map :restaurants="restaurants" />
-      <Information :restaurants="restaurants" />
+      <v-col cols="12" sm="9" md="9" bg="9">
+        <Map :restaurants="restaurants" />
+      </v-col>
+      <v-col cols="12" sm="3" md="3" bg="3">
+        <Information
+          :restaurants="restaurants"
+          @addRestaurant="addRestaurant"
+        />
+      </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
 import { fetchRestaurants } from "../services/service.js";
-import axios from "axios";
+import { createRestaurants } from "../services/service.js";
+// import axios from "axios";
 import Map from "./Map.vue";
 import Information from "./Information.vue";
 
@@ -27,10 +35,10 @@ export default {
   methods: {
     async getAllRestaurants() {
       this.restaurants = await fetchRestaurants();
-      // axios.get("https://foodmap99.herokuapp.com/api/restaurant")
-      // .then(res=>{
-      //   this.restaurants = res.data
-      // })
+    },
+    async addRestaurant(val) {
+      await createRestaurants(val);
+      this.getAllRestaurants();
     },
   },
   created() {
@@ -45,5 +53,4 @@ export default {
   margin: 0rem;
   overflow: hidden;
 }
-
 </style>

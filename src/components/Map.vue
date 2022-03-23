@@ -1,5 +1,4 @@
 <template>
-  <v-col cols="12" sm="9" md="9" bg="9">
     <div class="map-box">
       <div id="map" ref="map-root">
         <div id="popup" class="ol-popup">
@@ -12,7 +11,6 @@
         </div>
       </div>
     </div>
-  </v-col>
 </template>
 
 <script>
